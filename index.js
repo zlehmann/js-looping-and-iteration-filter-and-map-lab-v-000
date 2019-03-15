@@ -22,5 +22,14 @@ function exactMatch(drivers, criteria) {
 }
 
 function exactMatchToList(drivers, criteria) {
-
+  let targetDrivers = drivers.filter(function(obj) {
+    return Object.keys(criteria).every(function(c) {
+      return obj[c] == criteria[c];
+    });
+  });
+  let result = [];
+  for (const driver of targetDrivers){
+    result.push(driver.name);
+  }
+  return result;
 }
